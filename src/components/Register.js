@@ -8,7 +8,7 @@ export default function Register() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    navigate("/confirmed");
+    navigate("/confirmed", { state: { email: emailRef.current.value } });
   }
 
   return (
