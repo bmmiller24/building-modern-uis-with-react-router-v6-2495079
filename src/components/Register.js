@@ -5,10 +5,19 @@ export default function Register() {
   const navigate = useNavigate();
 
   const emailRef = useRef(null);
+  const fnameRef = useRef(null);
+  const lnameRef = useRef(null);
 
   function handleSubmit(event) {
     event.preventDefault();
-    navigate("/confirmed", { state: { email: emailRef.current.value } });
+
+    navigate("/confirmed", { 
+      state: { 
+        email: emailRef.current.value,
+        fname: fnameRef.current.value,
+        lname: lnameRef.current.value,
+      } 
+    });
   }
 
   return (
@@ -20,9 +29,20 @@ export default function Register() {
         technology solutions and events that connect the world.
       </p>
       <form onSubmit={handleSubmit}>
+        <div style={{display: "flex", gap: "6px"}}>
+          <label>
+            First Name:
+            <input type="text" name="fname" ref={fnameRef} required />
+          </label>
+          <label>
+            Last Name:
+            <input type="text" name="lname" ref={lnameRef} required />
+          </label>
+        </div>
+        
         <label>
           Email:
-          <input type="text" name="email" ref={emailRef} />
+          <input type="text" name="email" ref={emailRef} required />
         </label>
         <input type="submit" value="Submit" />
       </form>

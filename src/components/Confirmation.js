@@ -6,8 +6,14 @@ export default function Confirmation() {
   return (
     <div className="container">
       <h1>Thank You!</h1>
-      <p>You're now registered for Red30 Tech.</p>
-      {state && <p>We've set additional information to <strong>{state.email}</strong></p>}    
+
+      { state && 
+        <>
+          <p>{state.fname} you are now registered for Red30 Tech as <strong>{state.fname} {state.lname}</strong>.</p>
+          <p>We've set additional information to <strong>{state.email}</strong></p>
+        </>
+      } 
+
     </div>
   );
 }
